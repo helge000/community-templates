@@ -1,11 +1,14 @@
 <%#
-kind: user_data
-name: WAIK joinDomain.ps1
-params:
-- domainAdminAccount: administrator@domain.com # use tthis account to join domain. If set, domain join will run
-- domainAdminAccountPasswd: Password for the domain Admin account
-- computerOU: OU=Computers,CN=domain,CN=com # Place the computer account in specified Organizational Unit
-- computerDomain: domain.com # domain to join, optional
+#kind: user_data
+#name: WAIK joinDomain.ps1
+#oses:
+#- Windows 6.1
+#- Windows 6.3
+#params:
+#- domainAdminAccount: administrator@domain.com # use tthis account to join domain. If set, domain join will run
+#- domainAdminAccountPasswd: Password for the domain Admin account
+#- computerOU: OU=Computers,CN=domain,CN=com # Place the computer account in specified Organizational Unit
+#- computerDomain: domain.com # domain to join, optional
 -%>
 $user = "<%= @host.params['domainAdminAccount'] -%>"
 $passwd = ConvertTo-SecureString -String "<%= @host.params['domainAdminAccountPasswd'] -%>" -AsPlainText -Force

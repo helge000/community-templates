@@ -1,13 +1,16 @@
 <%#
-kind: provision
-name: WAIK default
-params:
-- windowsLicenseKey: ABCDE-ABCDE-ABCDE-ABCDE-ABCDE # Valid Windows license key
-- windowsLicenseOwner: Company, INC # Legal owner of the Windows license key
-- systemLocale: en-US
-- systemUILanguage: en-US
-- systemTimeZone: Pacific Standard Time #see https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
-- wimImageName = Windows 8.1 Pro # Image name seems only necessary if the WIM contains more than one image
+#kind: provision
+#name: WAIK default
+#oses:
+#- Windows 6.1
+#- Windows 6.3
+#params:
+#- windowsLicenseKey: ABCDE-ABCDE-ABCDE-ABCDE-ABCDE # Valid Windows license key
+#- windowsLicenseOwner: Company, INC # Legal owner of the Windows license key
+#- systemLocale: en-US
+#- systemUILanguage: en-US
+#- systemTimeZone: Pacific Standard Time #see https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+#- wimImageName = Windows 8.1 Pro # Image name seems only necessary if the WIM contains more than one image
 -%>
 <?xml version="1.0" encoding="utf-8"?>
 <unattend xmlns="urn:schemas-microsoft-com:unattend">
@@ -151,6 +154,5 @@ params:
             <UserAuthentication>0</UserAuthentication>
         </component>
     </settings>
-    <cpi:offlineImage cpi:source="catalog:c:/deploy/wimaging/sources/win81x64/sources/install_windows 8.1 pro.clg" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
 </unattend>
 
