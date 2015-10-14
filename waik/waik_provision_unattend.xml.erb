@@ -8,7 +8,7 @@
 #- windowsLicenseKey: ABCDE-ABCDE-ABCDE-ABCDE-ABCDE # Valid Windows license key
 #- windowsLicenseOwner: Company, INC # Legal owner of the Windows license key
 #- systemLocale: en-US
-#- systemUILanguage: en-US
+#- systemUiLanguage: en-US
 #- systemTimeZone: Pacific Standard Time #see https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
 #- wimImageName = Windows 8.1 Pro # Image name seems only necessary if the WIM contains more than one image
 -%>
@@ -48,7 +48,7 @@
               <InputLocale><%= @host.params['systemLocale'] %></InputLocale>
               <SystemLocale><%= @host.params['systemLocale'] %></SystemLocale>
               <UILanguageFallback>en-US</UILanguageFallback>
-              <UILanguage><%= @host.params['systemUILanguage'] %></UILanguage>
+              <UILanguage><%= @host.params['systemUiLanguage'] %></UILanguage>
               <UserLocale><%= @host.params['systemLocale'] %></UserLocale>
             <% else -%>
                <InputLocale>en-US</InputLocale>
@@ -65,7 +65,7 @@
               <InputLocale><%= @host.params['systemLocale'] -%></InputLocale>
               <SystemLocale><%= @host.params['systemLocale'] -%></SystemLocale>
               <UILanguageFallback>en-US</UILanguageFallback>
-              <UILanguage><%= @host.params['systemUILanguage'] -%></UILanguage>
+              <UILanguage><%= @host.params['systemUiLanguage'] -%></UILanguage>
               <UserLocale><%= @host.params['systemLocale'] -%></UserLocale>
             <% else -%>
                <InputLocale>en-US</InputLocale>
@@ -112,7 +112,7 @@
             <% if @host.params['systemLocale'] -%>
               <InputLocale><%= @host.params['systemLocale'] -%></InputLocale>
               <SystemLocale><%= @host.params['systemLocale'] -%></SystemLocale>
-              <UILanguage><%= @host.params['systemUILanguage'] -%></UILanguage>
+              <UILanguage><%= @host.params['systemUiLanguage'] -%></UILanguage>
               <UILanguageFallback>en-US</UILanguageFallback>
               <UserLocale><%= @host.params['systemLocale'] -%></UserLocale>
             <% else -%>

@@ -8,15 +8,15 @@
 params:
 - windowsLicenseKey: ABCDE-ABCDE-ABCDE-ABCDE-ABCDE # Valid Windows license key
 - windowsLicenseOwner: Company, INC # Legal owner of the Windows license key
-- localAdminiAccountDisabled: false
+- localAdminAccountDisabled: false
 - ntpSever: time.windows.com,other.time.server
-- domainAdminAccount: administrator@domain.com # use this account to join domain
-- domainAdminAccountPasswd: Password for the domain Admin account
-- computerOU: OU=Computers,CN=domain,CN=com # Place the computer account in specified Organizational Unit
+- domainJoinAccount: administrator@domain.com # use this account to join domain
+- domainJoinAccountPasswd: Password for the domain Admin account
+- computerLdapPath: OU=Computers,CN=domain,CN=com # Place the computer account in specified Organizational Unit
 - computerDomain: domain.com # domain to join
 -%>
 @echo off
-<% unless @host.params['localAdminiAccountDisabled'] -%>
+<% unless @host.params['localAdminAccountDisabled'] -%>
   echo Activating administrator
   net user administrator /active:yes
 <% end -%>
@@ -56,14 +56,14 @@ params:
 
   :: You can join your machine to the domain right here >
 
-  <% if @host.params['domainAdminAccount'] and @host.params['domainAdminAccountPasswd'] -%>
+  <% if @host.params['domainJoinAccount'] and @host.params['domainJoinAccountPasswd'] -%>
   echo joining domain
   powershell.exe -OutputFormat text -ExecutionPolicy remotesigned -command c:\deploy\joinDomain.ps1
   <% end %>
 
   :: < You can join your machine to the domain right here
 
-  <% if @host.params['localAdminiAccountDisabled'] %>
+  <% if @host.params['localAdminAccountDisabled'] %>
       echo Disabling %tempAdminUser%
       net user %tempAdminUser% %tempAdminUser% /active:no
   <% end %>
