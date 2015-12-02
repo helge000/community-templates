@@ -79,7 +79,7 @@
             <UserAccounts>
                 <AdministratorPassword>
                     <PlainText>false</PlainText>
-                    <Value><%= Base64.encode64(Encoding::Converter.new("UTF-8", "UTF-16LE",:undef => nil).convert(Base64.decode64(root_pass)+"AdministratorPassword")).delete!("\n").chomp %></Value>
+                    <Value><%= root_pass %></Value>
                 </AdministratorPassword>
                 <% if snippet('WAIK local users') -%>
                   <%= snippet('WAIK local users') -%>
